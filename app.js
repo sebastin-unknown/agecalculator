@@ -14,6 +14,8 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+
+
 app.post('/calculate-age', (req, res) => {
   console.log("before")  
   const data = {
@@ -25,7 +27,7 @@ app.post('/calculate-age', (req, res) => {
   }
   console.log(data.input)
 
-  db.query(`INSERT INTO dateofbirth (YEAR, MONTH ,DATE ,INPUT) VALUES (5, 5, 5, 5);`, (err, results) => {
+  db.query(`INSERT INTO dateofbirth (YEAR, MONTH ,DATE ,INPUT) VALUES (${data.year}, ${data.month}, ${data.Date}, ${data.input});`, (err, results) => {
     if (err) {
       console.error('Error inserting data:', err);
       res.status(500).send('Error inserting data');
@@ -39,6 +41,6 @@ app.post('/calculate-age', (req, res) => {
 });
 
 
-app.listen(3000, () => {
-  console.log('Server started on port 3000');
+app.listen(3020, () => {
+  console.log('Server started on port 3020');
 });

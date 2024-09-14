@@ -1,9 +1,9 @@
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
+  host: 'database-1.cfukwwgkciam.ap-south-1.rds.amazonaws.com',
+  user: 'admin',
+  password: 'kamlesh#123456789',
   database: 'devops'
 });
 
@@ -16,3 +16,7 @@ db.connect((err) => {
 });
 
 module.exports = db;
+
+
+
+
