@@ -27,7 +27,7 @@ app.post('/calculate-age', (req, res) => {
   }
   console.log(data.input)
 
-  db.query(`INSERT INTO dateofbirth (YEAR, MONTH ,DATE ,INPUT) VALUES (${data.year}, ${data.month}, ${data.Date}, ${data.input});`, (err, results) => {
+  db.query(`INSERT INTO dateofbirth (YEAR, MONTH ,DATE ,INPUT) VALUES (${data.year}, ${data.month}, ${data.Date}, "${data.input}");`, (err, results) => {
     if (err) {
       console.error('Error inserting data:', err);
       res.status(500).send('Error inserting data');
@@ -35,9 +35,9 @@ app.post('/calculate-age', (req, res) => {
     }
     res.send(`User created successfully!`);
   });
-  
 
-  res.render('result', {data});
+
+   
 });
 
 
